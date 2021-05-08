@@ -18,9 +18,6 @@ const newUser = async ({ name, username, email, password }) => {
   username = username.toLowerCase();
   // Buscando correo
   const findEmail = await User.findOne({ email });
-  console.log('------------------------------------');
-  console.log(findEmail);
-  console.log('------------------------------------');
   if (findEmail) throw new Error('El correo ya se encuentra registrado');
   
   // Buscando username
