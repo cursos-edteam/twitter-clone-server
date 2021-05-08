@@ -1,3 +1,5 @@
+const { User } = require('../controllers');
+
 const resolver = {
   Query: {
     // Usuarios
@@ -10,13 +12,8 @@ const resolver = {
   },
   Mutation: {
     // Usuarios
-    newUser: (_, { input }) => {
-      console.log('------------------------------------');
-      console.log('addUser');
-      console.log(input);
-      console.log('------------------------------------');
-      return input;
-    }
+    newUser: (_, { input }) => User.newUser(input),
+    authentication: (_, { input }) => User.authentication(input)
   }
 };
 
